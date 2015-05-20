@@ -1,0 +1,1 @@
+these statistics can be used to discover sentiment towards different cities in AU when people living in sydney tweet these cities

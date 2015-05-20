@@ -1,0 +1,1 @@
+if you want find geo location for different language, just change the value of variable named language in the code.

@@ -1,0 +1,27 @@
+---
+
+#Ruichen Teng / tengr / 678693
+#Tiehua Zhang / tiehuaz / 645227
+#Chao Lin / clin2 / 658584
+#Xueqiang Ma/ xueqiangm/ 668190
+#Zheng Zheng/ zzheng2/ 651384
+
+- hosts: 127.0.0.1
+  connection: local
+  sudo: true
+
+  tasks:
+  - name: launch an instance
+    nova_compute:
+      name: '{{nodename}}'
+      state: present
+      login_username: x.ma12@student.unimelb.edu.au
+      login_password: YTRkOTllN2Y0YWQ2ZDhm
+      login_tenant_name: CCC-2015Teaching-team26
+      region_name: Melbourne
+      availability_zone: tasmania
+      auth_url: https://keystone.rc.nectar.org.au:5000/v2.0/
+      flavor_id: '{{flavorid}}'
+      image_id: eeedf697-5a41-4d91-a478-01bb21e32cbe
+      key_name: nectar
+      security_groups: default,ssh,http,couchdb

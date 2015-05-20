@@ -1,0 +1,5 @@
+Node2:
+	API Key:
+	3c8b24c6-fcdf-4708-8785-7c1f0690d29c
+	API Secret: 
+	0c51832e-fef9-4064-a725-21fd91bac9da

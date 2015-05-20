@@ -1,0 +1,22 @@
+---
+
+#Ruichen Teng / tengr / 678693
+#Tiehua Zhang / tiehuaz / 645227
+#Chao Lin / clin2 / 658584
+#Xueqiang Ma/ xueqiangm/ 668190
+#Zheng Zheng/ zzheng2/ 651384
+
+- hosts: '{{hosts}}'
+  remote_user: ubuntu
+  gather_facts: False
+  sudo: True
+
+  tasks:
+  - name: Create a ext4 filesystem on /dev/vdc
+    filesystem: fstype=ext4 dev=/dev/vdc
+  - name: Creates directory 'data'
+    file: path=/mnt/data state=directory owner=couchdb group=couchdb
+  - name: Mount up device
+    mount: name=/mnt/data src=/dev/vdc fstype=ext4 state=present
+  - name: Creates directory 'couchdb'
+    file: path=/mnt/data/couchdb state=directory owner=couchdb group=couchdb

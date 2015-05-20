@@ -1,0 +1,1 @@
+this is the code to calculate people’s sentiment everyday in a week, from monday to sunday

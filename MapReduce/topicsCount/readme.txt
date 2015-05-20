@@ -1,0 +1,1 @@
+this is used to calculate some topics mostly tweeted from people in sydney

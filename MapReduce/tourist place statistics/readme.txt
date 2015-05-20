@@ -1,0 +1,1 @@
+the number of tweets in different tourist places in sydney and people’s sentiment in these places

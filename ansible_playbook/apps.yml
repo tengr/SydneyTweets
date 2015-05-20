@@ -1,0 +1,44 @@
+---
+
+#Ruichen Teng / tengr / 678693
+#Tiehua Zhang / tiehuaz / 645227
+#Chao Lin / clin2 / 658584
+#Xueqiang Ma/ xueqiangm/ 668190
+#Zheng Zheng/ zzheng2/ 651384
+
+- hosts: '{{hosts}}'
+  remote_user: ubuntu
+  sudo: True
+
+  tasks:
+  - name: Add repository
+    apt_repository: repo='ppa:couchdb/stable'
+  - name: Remove existing couchdb
+    apt: name={{item}} state=absent force=yes
+    with_items:
+      - couchdb
+      - couchdb-bin
+      - couchdb-common
+  - name: Installs basic tools
+    apt: name={{item}} state=present
+    with_items:
+      - vim
+      - python
+      - couchdb
+      - libxml2-dev
+      - libxslt1-dev
+      - python-dev
+  - name: Install pip through easy_install
+    easy_install: name=pip
+  - name: Install python tweepy package
+    pip: name=tweepy
+  - name: Install python couchdb package
+    pip: name=couchdb
+  - name: Install python novaclient package
+    pip: name=python-novaclient
+  - name: Install python textblob package
+    pip: name=textblob
+  - name: Download textblob corpora
+    script: textblob_corpora.sh
+  - name: Modify couchdb configuration file
+    script: couchdb_config.sh
